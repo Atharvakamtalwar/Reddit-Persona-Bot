@@ -271,7 +271,6 @@ output/
 *.txt
 *.json
 *.csv
-*.md
 *_persona.txt
 *_raw_data.json
 *_activity_analysis.json

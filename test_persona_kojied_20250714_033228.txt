@@ -1,0 +1,94 @@
+# Reddit User Persona: u/kojied
+
+## 👤 User Profile
+
+**Age Range:** Late 20s to Mid 30s (Identifies as Millennial, engaged in career development and lifestyle choices common for this demographic.)
+**Location:** New York City, USA (Frequent posts and comments in NYC-specific subreddits, refers to a local bar, biking, and food scene.)
+**Lifestyle:** A tech-savvy urban professional, likely in software development, who balances an active city life with deep dives into gaming, emerging technologies, and social issues. Enjoys exploring new experiences, whether culinary or digital, and values self-improvement.
+**Primary Interests:** Spatial Computing (Apple Vision Pro, VisionOS development), Strategy/Simulation Gaming, NYC Urban Exploration & Culture
+
+## 🎯 Core Identity
+
+### Personality Overview
+Kojied is a curious and analytical individual, always keen to understand how things work and to explore new frontiers, especially in technology. They are direct and pragmatic, but also possess a thoughtful, observant side, often reflecting on societal trends and personal experiences.
+
+### Communication Style
+Their communication is direct, informative, and often leans towards problem-solving or knowledge-sharing. They ask specific, insightful questions and offer detailed advice, particularly in their areas of expertise. Kojied engages thoughtfully, sometimes sharing personal anecdotes or reflecting on broader implications, and occasionally injects a touch of dry humor or sarcasm.
+
+## 🎮 Interests & Hobbies
+
+### Primary Interests
+-   **Spatial Computing & AI**: Highly engaged with the Apple Vision Pro (AVP), exploring its capabilities for work and entertainment, and actively learning VisionOS development. Also deeply interested in AI, especially generative AI and its implications.
+-   **Strategy & Simulation Gaming**: An avid player of strategy games like *Manor Lords* and *Civilization 5*, demonstrating a strong understanding of game mechanics and often providing tactical advice. Also enjoys survival games like *Project Zomboid*.
+-   **NYC Culture & Exploration**: Actively participates in discussions about New York City's food scene, unique spots, biking culture, and public transport, indicating a strong connection to urban life.
+
+### Secondary Interests
+-   **Anime & Manga**: Engages with titles like *One Piece* (including complex theories) and *Edgerunners*. Has knowledge of Japanese language and cultural nuances.
+-   **Social & Environmental Issues**: Discusses topics like H1B visa exploitation, the TikTok ban, and environmental, social, and governance (ESG) ratings, showing a concern for broader societal impacts.
+-   **NBA**: Follows professional basketball, specifically the Warriors, and comments on league dynamics.
+-   **Plant Care**: Seeks and offers advice on caring for houseplants.
+
+## 💭 Values & Beliefs
+
+### Core Values
+-   **Innovation & Progress**: Deeply invested in cutting-edge technology and its potential to enhance work and life. Always looking for "killer features" and new ways to apply tech.
+-   **Authenticity & Fairness**: Expresses concerns about exploitation (H1B), inconsistencies (NBA refs, AI character generation), and seeks genuine information, questioning misleading narratives.
+-   **Personal Growth & Self-Sufficiency**: Values self-care, continuous learning (e.g., VisionOS development), and building a better life for themselves, as indicated by their "Millennial" perspective.
+
+### Perspectives
+Kojied holds a pragmatic and critical worldview, observing societal trends and technological advancements with both enthusiasm and a healthy skepticism. They believe in the power of individual agency while acknowledging systemic challenges. Their perspective is often informed by a blend of their professional background, cultural heritage (Japanese), and lived urban experience.
+
+## 🎯 Goals & Motivations
+
+### What Drives Them
+-   **Curiosity and Learning**: A strong desire to understand new technologies, complex systems (like game mechanics), and global issues.
+-   **Optimization and Efficiency**: Driven to find better ways of working and living, whether through tech integration (AVP workflow) or strategic planning (gameplay).
+-   **Meaningful Engagement**: Seeks intellectual stimulation and discussions that delve beyond the surface, contributing to and learning from niche communities.
+
+### What They're Seeking
+Kojied appears to be looking for expert insights, solutions to technical or practical problems, and like-minded individuals with whom to share and discuss their passions. They seek to optimize their workflow, enhance their experiences, and contribute to communities where they can share their knowledge.
+
+## 😤 Frustrations & Pain Points
+
+### Common Frustrations
+-   **Tech Limitations & Inconsistencies**: Frustrated when new technology (like AVP) doesn't fully support their professional workflow, or when AI models lack consistency.
+-   **Lack of Depth/Completeness**: Disappointment with games that have "too little late game content."
+-   **Erosion of "Mature" Spaces**: Feeling alienated or "violated" by the influx of younger crowds into traditionally mature environments.
+
+### Challenges They Face
+They encounter challenges in adapting new tech to existing workflows (e.g., AVP with M1 MBP latency, lack of dev tools). They also face the common challenges of urban living, such as dealing with unreliable services (Lyft) and navigating evolving social dynamics.
+
+## 🔍 Behavioral Patterns
+
+### Online Behavior
+-   **Activity Level**: Highly active, contributing consistently with both posts and comments, indicating regular engagement with Reddit.
+-   **Engagement Style**: Highly interactive, providing detailed responses, offering solutions, and initiating discussions through insightful questions.
+-   **Content Preference**: Primarily engages with discussion-based text posts, sharing personal experiences, theories, and seeking/offering advice. Also shares visual content when relevant (mock-ups, AVP screenshots).
+
+### Communication Patterns
+-   **Helpfulness**: Very high; often goes into detail to help others solve problems in games, plant care, or understanding cultural nuances.
+-   **Expertise Sharing**: Readily shares knowledge in areas where they have expertise (iOS/VisionOS development, game strategy, Japanese language).
+-   **Community Involvement**: Deeply embedded in several niche communities, demonstrating long-term interest and contributing actively to their specific knowledge bases.
+
+## 📊 Activity Summary
+
+**Most Active In**: r/ManorLords, r/VisionPro, r/AskReddit
+**Total Posts**: 31
+**Total Comments**: 100
+**Account Age Estimate**: Active for at least 2-3+ years, with significant recent activity (especially mid-2024 to mid-2025 based on content and scrape date).
+
+## 🎭 Persona Quote
+"Whether it's building a virtual empire or navigating the real one, I'm always looking for the next challenge and the best way to tackle it."
+
+## 📝 Summary
+Kojied is a vibrant, intellectually curious Millennial, likely an iOS developer based in NYC, who thrives on exploring the cutting edge of technology and engaging with complex systems. They are a helpful and articulate contributor to their chosen online communities, always eager to learn, share knowledge, and engage in thoughtful discussions about everything from gaming strategy to societal trends.
+
+---
+
+EVIDENCE SOURCES:
+*   Age Range: Comment - "Millenials have less kids..." (https://www.reddit.com/r/AskReddit/comments/1kz5a0n/do_you_think_millennials_generally_look_younger/mv2xf3q/)
+*   Location: Submission - "I feel violated by intern season" (r/newyorkcity), Comments - r/FoodNYC, r/AskNYC, r/NYCbike, r/nycrail.
+*   Lifestyle/Profession: Submission - "Hey I’m an iOS developer building in visionOS." (https://www.reddit.com/r/visionosdev/comments/1b3yugb/best_blogs_tutorial_channels_to_learn/), Submission - "as someone who's worked in environmental consulting" (https://www.reddit.com/r/ClimateOffensive/comments/15xgmea/tracking_our_individual_impacts_on_the_world/)
+*   Japanese Heritage: Comment - "Source: I’m Japanese" (https://www.reddit.com/r/OnePiece/comments/1kpavbs/ive_been_ripping_on_that_part_of_zoros_backstory/mswlma6/), Submission - "Being Japanese, I happen to know a few key decision makers both in the Pokemon Company as well as Niantic." (https://www.reddit.com/r/VisionPro/comments/1ajbkqm/would_you_guys_like_to_see_pokemon_go_in_avp/)
+*   Core Interests: Multiple submissions and comments in r/VisionPro, r/ManorLords, r/civ5.
+*   Frustrations: Submission - "I feel violated by intern season" (r/newyorkcity), Submission - "Can you actually “work” in AVP?" (https://www.reddit.com/r/VisionPro/comments/1aiwqa2/can_you_actually_work_in_avp/), Comment - "Too little late game content" (https://www.reddit.com/r/ManorLords/comments/1lse9cn/great_game_i_hope_there_is_something_new_added_in/n1i5k2p/)

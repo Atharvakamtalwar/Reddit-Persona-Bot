@@ -264,13 +264,7 @@ $RECYCLE.BIN/
 .env.development
 
 # Output directory containing generated personas and raw data
-output/
-*.txt
-*.json
-*.csv
-*_persona.txt
-*_raw_data.json
-*_activity_analysis.json
+
 
 # Temporary test files
 test_*.py

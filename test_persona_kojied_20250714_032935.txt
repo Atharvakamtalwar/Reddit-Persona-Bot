@@ -1,0 +1,115 @@
+# Reddit User Persona: u/kojied
+
+## 👤 User Profile
+
+**Age Range:** Late 20s to Mid 30s. (Inferred from H1B discussions, professional background in tech/consulting, identification with "millennial" issues, and a comment about being called "old" by interns which suggests they're past college age but still relatively young professionals.)
+**Location:** New York City, NY. (Explicitly mentioned frequenting an NYC bar, posts in r/newyorkcity, r/FoodNYC, r/NYCbike, r/AskNYC, r/nycrail).
+**Lifestyle:** An urban professional deeply integrated into city life, possibly in tech or environmental consulting. They balance a demanding career with a passion for emerging technologies, strategic gaming, and exploring their diverse interests, from anime to plants. They enjoy the vibrant, intellectual aspects of city living and value efficiency in their daily life.
+**Primary Interests:** Tech & Spatial Computing, Strategic Gaming, NYC Urban Culture, Anime & Manga.
+
+## 🎯 Core Identity
+
+### Personality Overview
+u/kojied is a curious and analytical individual with a practical, problem-solving mindset. They are observant and reflective, often dissecting complex issues from various angles. While generally helpful and collaborative, they aren't afraid to voice frustrations or skeptical opinions, especially when it comes to inefficiency, hype, or perceived unfairness. They possess a subtle blend of intellectual depth and cultural awareness.
+
+### Communication Style
+Their communication is direct, articulate, and often informative. They tend to ask thoughtful, probing questions to deepen understanding or invite discussion. When sharing their knowledge, they provide detailed and practical advice. They can be critical or sarcastic, but generally in a constructive or observational manner. They are comfortable engaging across a wide range of topics, from highly technical to casual and personal.
+
+## 🎮 Interests & Hobbies
+
+### Primary Interests
+-   **Tech & Spatial Computing**: Highly invested in new technologies, particularly Apple Vision Pro and spatial computing. They actively explore use cases, discuss development challenges (like workflow integration, lack of tools), and seek resources for learning visionOS. They also engage with AI advancements, pondering their implications.
+-   **Strategic & Simulation Gaming**: A keen strategist and experienced player of simulation games like Manor Lords and Civilization V. They frequently offer detailed advice on game mechanics, resource management, and strategic city-building, demonstrating a deep understanding of complex game systems.
+-   **NYC Urban Culture**: Deeply connected to New York City life. They comment on local establishments (bars, coffee shops, restaurants), discuss city transportation (bikes, subway tokens), and share observations about living in the city, indicating a strong appreciation and engagement with their urban environment.
+
+### Secondary Interests
+-   **Anime & Manga**: Shows a strong interest, particularly in One Piece (engaging in theories, sharing cultural context) and Cyberpunk: Edgerunners (watching on AVP).
+-   **Environmental & Social Issues**: Posts about ESG ratings and tracks global impacts, indicating a concern for climate and societal issues.
+-   **Sports (NBA)**: Follows basketball, expressing opinions on team performance and league officiating.
+-   **Plant Care**: Seeks advice and engages in discussions about houseplant health.
+
+## 💭 Values & Beliefs
+
+### Core Values
+-   **Efficiency & Optimization**: Constantly seeks better ways to work and play, from AVP workflows to game strategies, indicating a desire for optimal outcomes and minimal friction.
+-   **Authenticity & Substance**: Skeptical of fleeting trends and "hype" without real innovation (e.g., NFTs), valuing genuine progress and meaningful content.
+-   **Fairness & Accountability**: Expresses concern over inconsistencies (NBA refs) and potential exploitation (H1B narratives), suggesting a belief in equitable systems and transparency.
+-   **Continuous Learning & Growth**: Actively seeks out new knowledge and skills, particularly in the tech space, showing a strong drive for self-improvement and staying current.
+
+### Perspectives
+u/kojied generally holds an analytical and somewhat pragmatic worldview. They are attentive to socio-economic dynamics (H1B, generational shifts), critical of perceived inefficiencies or injustices, and forward-thinking, especially regarding technological advancements. They appreciate cultural nuances and intellectual discourse, and are unafraid to challenge prevailing narratives.
+
+## 🎯 Goals & Motivations
+
+### What Drives Them
+-   **Mastery & Expertise**: Driven to understand and excel in their fields of interest, whether it's spatial computing, game strategies, or cultural insights.
+-   **Problem Solving**: Motivated to find solutions to challenges, both personal (AVP workflow) and communal (game advice, climate discussions).
+-   **Intellectual Engagement**: Seeks out discussions that challenge their thinking and expand their knowledge base.
+-   **Improving Quality of Life**: Aims to leverage technology and efficient practices to enhance their personal and professional experiences.
+
+### What They're Seeking
+They appear to be seeking valuable information, practical advice, like-minded individuals for intellectual discussions, and opportunities to learn and contribute within various online communities. They value platforms where they can share their insights and engage in meaningful, in-depth conversations.
+
+## 😤 Frustrations & Pain Points
+
+### Common Frustrations
+-   **Generational Clashes**: Expresses discomfort and feeling "violated" by the influx of younger crowds in familiar spaces, and being called "old."
+-   **Technological Limitations**: Frustrated by the current constraints and missing features in new tech (e.g., AVP's lack of developer tools or latency with older hardware).
+-   **Lack of Depth/Innovation**: Disappointed by games with insufficient late-game content or tech trends that are all "hype" with no real substance (e.g., NFTs).
+-   **Systemic Inconsistencies**: Highlights issues like inconsistent referee calls in sports or unhelpful customer service (Lyft).
+
+### Challenges They Face
+Navigating the rapidly evolving tech landscape, balancing professional demands with personal interests, adapting to generational shifts, and finding truly innovative and fulfilling experiences amidst a sea of superficiality.
+
+## 🔍 Behavioral Patterns
+
+### Online Behavior
+-   **Activity Level**: Moderately active, with a consistent presence over at least a year, making a good number of posts and comments.
+-   **Engagement Style**: Engages deeply and thoughtfully, often initiating discussions with specific questions or detailed observations. They respond to others' posts with advice, counterpoints, or further questions, indicating a desire for meaningful interaction rather than just casual browsing.
+-   **Content Preference**: Prefers content that is informative, analytical, allows for strategic thinking, or facilitates deep dives into niche interests (tech, gaming, city life, cultural theories).
+
+### Communication Patterns
+-   **Helpfulness**: Highly helpful, frequently offering detailed, practical solutions and strategic advice to others in gaming and tech-related subreddits.
+-   **Expertise Sharing**: Readily shares their knowledge and experiences, whether it's deep gaming strategies, insights into spatial computing, or specific cultural/linguistic contexts.
+-   **Community Involvement**: A strong community participant who contributes actively to discussions, helps newcomers, and builds a reputation as a knowledgeable and thoughtful member within their chosen subreddits.
+
+## 📊 Activity Summary
+
+**Most Active In**: r/VisionPro, r/ManorLords, r/AskReddit
+**Total Posts**: 31
+**Total Comments**: 100
+**Account Age Estimate**: ~1 year (Active from at least August 2023 to July 2024 based on provided post dates)
+
+## 🎭 Persona Quote
+"It's about finding the killer features, the real innovation, and the deeper strategy, not just riding the hype. And maybe finding a bar without interns."
+
+## 📝 Summary
+u/kojied is a New York City-based tech-savvy professional who thrives on analytical thinking, strategic problem-solving, and continuous learning. They are deeply engaged with emerging technologies like spatial computing and AI, while also being a dedicated gamer and an active participant in their local urban community. They value efficiency, authenticity, and intellectual depth, often voicing frustrations about superficiality or systemic flaws, and consistently offering valuable insights and advice to others online.
+
+---
+
+EVIDENCE SOURCES:
+*   **Age Range/Lifestyle:**
+    *   "I feel violated by intern season" - https://www.reddit.com/r/newyorkcity/comments/1lykkqf/i_feel_violated_by_intern_season/
+    *   "H1B holders, what are your thoughts..." - https://www.reddit.com/r/AskReddit/comments/1hnx8j0/h1b_holders_what_are_your_thoughts_on_the/
+    *   "I’m an iOS developer building in visionOS." - https://www.reddit.com/r/visionosdev/comments/1b3yugb/best_blogs_tutorial_channels_to_learn/
+    *   "as someone who's worked in environmental consulting" - https://www.reddit.com/r/ClimateOffensive/comments/15xgmea/tracking_our_individual_impacts_on_the_world/
+    *   "Millenials have less kids, so they have more time and money to spend on themselves." - https://www.reddit.com/r/AskReddit/comments/1kz5a0n/do_you_think_millennials_generally_look_younger/mv2xf3q/
+*   **Location:**
+    *   "There's this bar that I frequent a few blocks away from my house." - https://www.reddit.com/r/newyorkcity/comments/1lykkqf/i_feel_violated_by_intern_season/
+    *   FoodNYC, NYCbike, AskNYC, nycrail subreddit activity.
+*   **Primary Interests (Tech/Gaming/NYC):**
+    *   Numerous posts/comments in r/VisionPro, r/visionosdev, r/ChatGPT.
+    *   Numerous comments in r/ManorLords, r/civ5.
+    *   Posts in r/newyorkcity, r/FoodNYC, r/NYCbike, r/AskNYC, r/nycrail.
+*   **Secondary Interests (Anime/Env/Sports/Plants):**
+    *   r/OnePiece activity, "Watching Edgerunners on the moon feels" - https://www.reddit.com/r/VisionPro/comments/1alx270/watching_edgerunners_on_the_moon_feels/
+    *   r/ClimateOffensive post - https://www.reddit.com/r/ClimateOffensive/comments/15xgmea/tracking_our_individual_impacts_on_the_world/
+    *   r/nba, r/warriors activity.
+    *   r/plantclinic posts.
+*   **Personality/Communication/Values/Goals/Frustrations/Behavioral Patterns:**
+    *   ManorLords strategy advice (e.g., https://www.reddit.com/r/ManorLords/comments/1ly3nuf/my_granary_burned_down/n2r16t2/)
+    *   VisionPro workflow discussion (https://www.reddit.com/r/VisionPro/comments/1aiwqa2/can_you_actually_work_in_avp/)
+    *   NFT critique (https://www.reddit.com/r/NFT/comments/1l2gcmt/nfts_in_2025_where_are_we_headed/mvt4t5c/)
+    *   H1B exploitation questions (https://www.reddit.com/r/AskReddit/comments/1hnx8j0/h1b_holders_what_are_your_thoughts_on_the/)
+    *   Japanese cultural context (https://www.reddit.com/r/OnePiece/comments/1kpavbs/ive_been_ripping_on_that_part_of_zoros_backstory/mswlma6/)

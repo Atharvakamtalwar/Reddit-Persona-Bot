@@ -1,0 +1,47 @@
+# User Persona for u/Hungry-Move-6603
+
+## Overview
+Based on available Reddit activity, this user has made 2 posts and 10 comments across various subreddits.
+
+## Basic Activity Analysis
+
+### Top Subreddits
+- r/lucknow: 7 posts/comments
+- r/nagpur: 2 posts/comments
+- r/IndiaUnfilter: 1 posts/comments
+- r/indiasocial: 1 posts/comments
+- r/amiugly: 1 posts/comments
+
+### Activity Summary
+- Total Posts: 2
+- Total Comments: 10
+- Active in 5 different subreddits
+
+### Sample Content
+
+**Recent Comments:**
+1. In r/nagpur: "I was caught without helmet and license (close to my home). Cops outright wanted to fine me, but a 'common guy' came in and discussed bribe on my behalf with cops. I gave him 200rs (back in 2011) and ..."
+   Source: https://www.reddit.com/r/nagpur/comments/1lyb0p5/a_very_odd_experience/n2ybup0/
+
+2. In r/nagpur: "Cops keep a civ around to discuss bribes."
+   Source: https://www.reddit.com/r/nagpur/comments/1lyb0p5/a_very_odd_experience/n2y7g0s/
+
+3. In r/IndiaUnfilter: "Toh hum Noida or Ghaziabad se pahadio ko bhagana shuru karein fir? 😂 Bhukmari ajaegi"
+   Source: https://www.reddit.com/r/IndiaUnfilter/comments/1lw6ijt/people_are_smoking_hookah_in_the_middle_of_the/n2vkdpb/
+
+
+**Recent Posts:**
+1. "Productive weekend activities in LKO?" in r/lucknow
+   Source: https://www.reddit.com/r/lucknow/comments/1lx50qm/productive_weekend_activities_in_lko/
+
+2. "Everyone is something in LKO" in r/lucknow
+   Source: https://www.reddit.com/r/lucknow/comments/1lwyhny/everyone_is_something_in_lko/
+
+
+## Limitations & Notes
+This is a basic analysis generated without advanced LLM processing. For more detailed personality insights, interests analysis, and behavioral patterns, please configure the Gemini API key.
+
+To get a complete persona analysis:
+1. Get a Gemini API key from Google AI Studio
+2. Add it to your .env file as GEMINI_API_KEY=your_key_here
+3. Re-run the analysis

@@ -12,187 +12,69 @@
 
 Generate detailed user personas from Reddit activity using AI analysis powered by Google Gemini.
 
-[Features](#features) • [Installation](#installation) • [Usage](#usage) • [API Setup](#api-setup) • [Examples](#examples)
-
 </div>
 
 ## Overview
 
-The Reddit User Persona Generator is a powerful tool that analyzes Reddit user activity to create comprehensive personality profiles. It uses advanced AI analysis through Google Gemini to understand user behavior, interests, communication patterns, and more.
-
-### Key Capabilities
-
-- 🔍 **Smart Data Scraping**: Uses Reddit API (PRAW) with web scraping fallback
-- 🤖 **AI-Powered Analysis**: Leverages Google Gemini for deep personality insights
-- 📊 **Rich Visualizations**: Interactive charts, word clouds, and activity patterns
-- 💾 **Data Export**: Save personas and raw data for further analysis
-- 🌐 **Web Interface**: Beautiful Streamlit UI for easy interaction
+Analyze Reddit user activity to create comprehensive personality profiles using AI. Features smart data scraping, persona generation, activity analytics, and beautiful visualizations.
 
 ## Features
 
-### 🎭 Persona Generation
+- 🔍 **Smart Data Scraping**: Reddit API (PRAW) with web scraping fallback
+- 🤖 **AI-Powered Analysis**: Google Gemini for deep personality insights
+- 📊 **Rich Visualizations**: Interactive charts, word clouds, activity patterns
+- 💾 **Multiple Export Formats**: Text, PDF, CSV downloads
+- 🌐 **Web Interface**: Beautiful Streamlit UI with progress tracking
 
-- **Comprehensive Analysis**: Interests, personality traits, communication style, demographics
-- **Evidence-Based**: Every characteristic backed by specific posts/comments with citations
-- **Confidence Ratings**: AI provides confidence levels for each inference
-- **Structured Output**: Well-organized persona reports in multiple formats
+## Quick Start
 
-### 📊 Activity Analytics
-
-- **Subreddit Analysis**: Top communities and karma distribution
-- **Temporal Patterns**: Activity by hour and day of the week
-- **Content Analysis**: Most upvoted/downvoted posts and comments
-- **Word Clouds**: Visual representation of frequently used terms
-
-### 🔧 Technical Features
-
-- **Dual Scraping Methods**: Reddit API (PRAW) + web scraping fallback
-- **Rate Limiting**: Respectful API usage with built-in delays
-- **Error Handling**: Robust error handling for various edge cases
-- **Data Persistence**: JSON export of raw data for reproducibility
-
-## Installation
-
-### Prerequisites
-
-- Python 3.10 or higher
-- Reddit API credentials (optional but recommended)
-- Google Gemini API key (for AI analysis)
-
-### Quick Start
-
-1. **Clone the repository**
+1. **Clone and install**
 
    ```bash
    git clone https://github.com/yourusername/reddit-persona-generator.git
    cd reddit-persona-generator
-   ```
-
-2. **Create virtual environment**
-
-   ```bash
-   python -m venv venv
-
-   # Windows
-   venv\\Scripts\\activate
-
-   # macOS/Linux
-   source venv/bin/activate
-   ```
-
-3. **Install dependencies**
-
-   ```bash
    pip install -r requirements.txt
    ```
 
-4. **Setup environment variables**
+2. **Configure APIs**
+   Create a `.env` file with your API credentials:
 
-   ```bash
-   # Copy the example environment file
-   cp .env.example .env
+   ```env
+   # Reddit API (optional but recommended)
+   REDDIT_CLIENT_ID=your_client_id
+   REDDIT_CLIENT_SECRET=your_client_secret
+   REDDIT_USER_AGENT=PersonaBot/1.0 by YourUsername
 
-   # Edit .env with your API credentials
+   # Google Gemini API (required for AI analysis)
+   GEMINI_API_KEY=your_gemini_api_key
    ```
 
-5. **Run the application**
-
+3. **Run the application**
    ```bash
    streamlit run app.py
    ```
-
-6. **Open your browser** to `http://localhost:8501`
 
 ## API Setup
 
-### Reddit API (Recommended)
+### Reddit API (Optional)
 
 1. Go to [Reddit Apps](https://www.reddit.com/prefs/apps)
-2. Click "Create App" or "Create Another App"
-3. Choose "script" as the app type
-4. Fill in the required fields:
-   - **name**: YourAppName
-   - **description**: Reddit User Persona Generator
-   - **redirect uri**: http://localhost:8080
-5. Note your **client ID** (under the app name) and **secret**
-6. Add to `.env`:
-   ```
-   REDDIT_CLIENT_ID=your_client_id_here
-   REDDIT_CLIENT_SECRET=your_client_secret_here
-   REDDIT_USER_AGENT=PersonaBot/1.0 by YourUsername
-   ```
+2. Create a new "script" app
+3. Get your client ID and secret
+4. Add to `.env`: `REDDIT_CLIENT_ID=your_id` and `REDDIT_CLIENT_SECRET=your_secret`
 
-### Google Gemini API (Required for AI Analysis)
+### Google Gemini API (Required)
 
 1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey)
-2. Sign in with your Google account
-3. Click "Create API Key"
-4. Copy your API key
-5. Add to `.env`:
-   ```
-   GEMINI_API_KEY=your_gemini_api_key_here
-   ```
-
-### Environment Configuration
-
-Create a `.env` file in the project root:
-
-```env
-# Reddit API Configuration
-REDDIT_CLIENT_ID=your_reddit_client_id_here
-REDDIT_CLIENT_SECRET=your_reddit_client_secret_here
-REDDIT_USER_AGENT=PersonaBot/1.0 by YourUsername
-
-# Gemini API Configuration
-GEMINI_API_KEY=your_gemini_api_key_here
-```
+2. Create an API key
+3. Add to `.env`: `GEMINI_API_KEY=your_key`
 
 ## Usage
 
-### Web Interface (Recommended)
-
-1. **Start the application**
-
-   ```bash
-   streamlit run app.py
-   ```
-
-2. **Enter a Reddit user**
-
-   - Username: `kojied`
-   - Profile URL: `https://www.reddit.com/user/kojied/`
-
-3. **Configure settings** (sidebar)
-
-   - Data limit: Number of posts/comments to analyze
-   - Show raw data: Display scraped data
-
-4. **Analyze and explore**
-   - View generated persona
-   - Explore activity analytics
-   - Download results
-
-### Command Line Usage
-
-You can also use the core modules directly:
-
-```python
-from src.reddit_scraper import RedditScraper
-from src.persona_generator import PersonaGenerator
-
-# Initialize
-scraper = RedditScraper()
-generator = PersonaGenerator()
-
-# Scrape data
-data = scraper.get_user_data('username', limit=100)
-
-# Generate persona
-persona = generator.generate_persona(data)
-
-# Save results
-generator.save_persona(persona, 'username')
-```
+1. **Start the app**: `streamlit run app.py`
+2. **Enter a Reddit username** (e.g., `kojied`)
+3. **Generate persona** and explore analytics
+4. **Download results** in multiple formats
 
 ## Project Structure
 
@@ -204,170 +86,43 @@ reddit-persona-generator/
 ├── output/                    # Generated personas and data
 ├── app.py                     # Streamlit web application
 ├── requirements.txt           # Python dependencies
-├── .env.example              # Environment template
+├── .env                       # Environment variables
 ├── .gitignore                # Git ignore rules
 ├── LICENSE                   # MIT License
 └── README.md                 # This file
 ```
 
-## Examples
-
-### Sample Output
-
-Here's what a generated persona looks like:
+## Sample Output
 
 ```markdown
-# User Persona for u/kojied
+# Reddit User Persona: u/kojied
 
-## Overview
+## 👤 User Profile
 
-Active Reddit user with strong interests in technology, programming, and gaming.
-Demonstrates analytical thinking and helpful communication style.
+**Age Range:** Early to mid-30s
+**Location:** New York City, USA
+**Primary Interests:** Tech & Spatial Computing, Strategic Gaming, NYC Culture
 
-## Detailed Characteristics
+## 🎯 Core Identity
 
-### Interests & Hobbies
-
-- **Programming & Technology**: Frequently discusses Python, web development, and
-  software engineering topics (Confidence: High)
-  - Evidence: "I've been working with FastAPI for the past year..."
-  - Source: https://www.reddit.com/r/Python/comments/...
-
-### Personality Traits
-
-- **Helpful & Collaborative**: Often provides detailed assistance to other users
-  (Confidence: High)
-  - Evidence: "Here's a step-by-step solution to your problem..."
-  - Source: https://www.reddit.com/r/learnpython/comments/...
-```
-
-### Use Cases
-
-- **Content Strategy**: Understand your audience for better content creation
-- **Market Research**: Analyze user behavior in specific communities
-- **Academic Research**: Study online behavior patterns (with ethical considerations)
-- **Personal Insights**: Understand your own Reddit activity patterns
-
-## Configuration Options
-
-### Data Limits
-
-- **Minimum**: 50 posts/comments (faster analysis)
-- **Default**: 100 posts/comments (balanced)
-- **Maximum**: 500 posts/comments (comprehensive analysis)
-
-### Analysis Depth
-
-The tool automatically adjusts analysis depth based on available data:
-
-- **Basic**: Activity statistics and top subreddits
-- **Standard**: Includes temporal patterns and content analysis
-- **Comprehensive**: Full AI persona with evidence citations
-
-## Troubleshooting
-
-### Common Issues
-
-**"Could not retrieve data for this user"**
-
-- User might not exist or have no public posts/comments
-- Profile might be private or suspended
-- Check username spelling
-
-**"Reddit API Not Connected"**
-
-- Verify your Reddit API credentials in `.env`
-- Ensure your Reddit app is configured correctly
-- Check that you're using the correct client ID and secret
-
-**"Gemini API Not Connected"**
-
-- Verify your Gemini API key in `.env`
-- Check that you have API quota remaining
-- Ensure your Google account has access to Gemini API
-
-**"Access forbidden: Reddit is blocking the request"**
-
-- This can happen with web scraping fallback
-- Try using Reddit API credentials instead
-- Consider changing your IP or using a VPN
-
-### Rate Limiting
-
-The tool implements respectful rate limiting:
-
-- **Reddit API**: Follows PRAW's built-in rate limiting
-- **Web Scraping**: 1-second delays between requests
-- **Gemini API**: Respects API quota limits
-
-## Contributing
-
-We welcome contributions! Here's how you can help:
-
-1. **Fork the repository**
-2. **Create a feature branch** (`git checkout -b feature/amazing-feature`)
-3. **Make your changes**
-4. **Add tests** if applicable
-5. **Commit your changes** (`git commit -m 'Add amazing feature'`)
-6. **Push to the branch** (`git push origin feature/amazing-feature`)
-7. **Open a Pull Request**
-
-### Development Setup
-
-```bash
-# Clone your fork
-git clone https://github.com/yourusername/reddit-persona-generator.git
-
-# Create development environment
-python -m venv dev-env
-source dev-env/bin/activate  # or dev-env\\Scripts\\activate on Windows
-
-# Install development dependencies
-pip install -r requirements.txt
-pip install black flake8 pytest
-
-# Run tests
-pytest
-
-# Format code
-black src/ app.py
+Analytical, curious tech professional with interests in emerging technologies...
 ```
 
 ## Privacy & Ethics
 
-### Important Considerations
-
-- 🔐 **Public Data Only**: Only analyzes publicly available Reddit posts and comments
-- 🤖 **No Personal Info**: Does not collect private messages, email, or personal data
-- 📝 **Educational Use**: Intended for educational and research purposes
-- ⚖️ **Terms of Service**: Users must comply with Reddit's Terms of Service
-- 🛡️ **Data Protection**: Raw data is stored locally and not transmitted to third parties
-
-### Best Practices
-
-- Always get consent before analyzing someone else's profile extensively
-- Use insights responsibly and ethically
-- Respect user privacy and Reddit's community guidelines
-- Don't use for harassment, stalking, or malicious purposes
+- 🔐 **Public Data Only**: Analyzes publicly available Reddit content
+- 🤖 **No Personal Info**: No private messages or personal data collection
+- 📝 **Educational Use**: Intended for research and educational purposes
+- ⚖️ **Terms of Service**: Users must comply with Reddit's ToS
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- **PRAW**: Python Reddit API Wrapper for Reddit integration
-- **Google Gemini**: AI-powered text analysis and persona generation
-- **Streamlit**: Beautiful web interface framework
-- **Reddit Community**: For providing the data that makes this analysis possible
+MIT License - see [LICENSE](LICENSE) file for details.
 
 ## Support
 
-If you encounter issues or have questions:
-
-1. Check the [troubleshooting section](#troubleshooting)
-2. Search [existing issues](https://github.com/yourusername/reddit-persona-generator/issues)
-3. [Create a new issue](https://github.com/yourusername/reddit-persona-generator/issues/new) if needed
+- Check [Issues](https://github.com/yourusername/reddit-persona-generator/issues) for common problems
+- Create a new issue if you need help
 
 ---
 

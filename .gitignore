@@ -263,9 +263,6 @@ $RECYCLE.BIN/
 .env.production
 .env.development
 
-# Keep example environment file
-!.env.example
-
 # Output directory containing generated personas and raw data
 output/
 *.txt

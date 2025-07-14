@@ -25,6 +25,7 @@ Analyze Reddit user activity to create comprehensive personality profiles using 
 - 📊 **Rich Visualizations**: Interactive charts, word clouds, activity patterns
 - 💾 **Multiple Export Formats**: Text, PDF, CSV downloads
 - 🌐 **Web Interface**: Beautiful Streamlit UI with progress tracking
+- 🗄️ **GraphRAG Chat**: Interactive Q&A using knowledge graphs powered by Neo4j
 
 ## Quick Start
 
@@ -47,9 +48,25 @@ Analyze Reddit user activity to create comprehensive personality profiles using 
 
    # Google Gemini API (required for AI analysis)
    GEMINI_API_KEY=your_gemini_api_key
+
+   # Neo4j Database (for GraphRAG chat)
+   NEO4J_URI=bolt://localhost:7687
+   NEO4J_USER=neo4j
+   NEO4J_PASSWORD=password
    ```
 
-3. **Run the application**
+3. **Setup Neo4j Database** (for GraphRAG chat feature)
+
+   ```bash
+   # Option 1: Auto-setup with Docker
+   python setup_neo4j.py
+
+   # Option 2: Manual Docker setup
+   docker run --name neo4j-persona -p 7474:7474 -p 7687:7687 \
+     -e NEO4J_AUTH=neo4j/password -d neo4j:latest
+   ```
+
+4. **Run the application**
    ```bash
    streamlit run app.py
    ```
@@ -69,12 +86,20 @@ Analyze Reddit user activity to create comprehensive personality profiles using 
 2. Create an API key
 3. Add to `.env`: `GEMINI_API_KEY=your_key`
 
+### Neo4j Database (For GraphRAG Chat)
+
+1. **Auto-setup**: Run `python setup_neo4j.py`
+2. **Manual setup**: Install Neo4j Desktop or use Docker
+3. **Docker**: `docker run --name neo4j-persona -p 7474:7474 -p 7687:7687 -e NEO4J_AUTH=neo4j/password -d neo4j:latest`
+4. Add to `.env`: `NEO4J_URI=bolt://localhost:7687`, `NEO4J_USER=neo4j`, `NEO4J_PASSWORD=password`
+
 ## Usage
 
 1. **Start the app**: `streamlit run app.py`
 2. **Enter a Reddit username** (e.g., `kojied`)
 3. **Generate persona** and explore analytics
-4. **Download results** in multiple formats
+4. **Use GraphRAG chat** for interactive Q&A about the persona
+5. **Download results** in multiple formats
 
 ## Project Structure
 
@@ -82,14 +107,17 @@ Analyze Reddit user activity to create comprehensive personality profiles using 
 reddit-persona-generator/
 ├── src/
 │   ├── reddit_scraper.py      # Reddit data scraping
-│   └── persona_generator.py   # AI persona generation
+│   ├── persona_generator.py   # AI persona generation
+│   └── graphrag_handler.py    # GraphRAG knowledge graph
 ├── output/                    # Generated personas and data
-├── app.py                     # Streamlit web application
-├── requirements.txt           # Python dependencies
-├── .env                       # Environment variables
-├── .gitignore                # Git ignore rules
-├── LICENSE                   # MIT License
-└── README.md                 # This file
+├── temp_graph/               # Temporary graph data files
+├── app.py                    # Streamlit web application
+├── setup_neo4j.py           # Neo4j database setup
+├── requirements.txt          # Python dependencies
+├── .env                      # Environment variables
+├── .gitignore               # Git ignore rules
+├── LICENSE                  # MIT License
+└── README.md                # This file
 ```
 
 ## Sample Output

@@ -14,12 +14,15 @@ from datetime import datetime
 import sys
 import io
 import csv
+from pathlib import Path
 
 # Add src directory to path
 sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
 
 from src.reddit_scraper import RedditScraper
 from src.persona_generator import PersonaGenerator
+from src.graphrag_handler import GraphRAGHandler
+from src.graphrag_handler import GraphRAGHandler
 
 
 def setup_page():
@@ -494,6 +497,182 @@ def extract_persona_data_for_csv(persona_text, username, reddit_data):
     
     return output.getvalue()
 
+def display_graphrag_chat(persona_text, username, reddit_data):
+    """Display GraphRAG chat interface."""
+    st.header(f"🤖 Chat with {username}'s Persona")
+    st.markdown("Ask questions about the user's personality, interests, and behavior patterns using AI-powered graph analysis.")
+    
+    # Initialize GraphRAG handler
+    if 'graphrag_handler' not in st.session_state:
+        st.session_state.graphrag_handler = GraphRAGHandler()
+    
+    graphrag = st.session_state.graphrag_handler
+    
+    # Check dependencies
+    deps = graphrag.check_dependencies()
+    
+    # Display dependency status
+    with st.expander("🔧 GraphRAG Status", expanded=not all(deps.values())):
+        col1, col2, col3 = st.columns(3)
+        
+        with col1:
+            if deps['neo4j_driver']:
+                st.success("✅ Neo4j Driver")
+            else:
+                st.error("❌ Neo4j Driver")
+                st.code("pip install neo4j==5.16.0")
+        
+        with col2:
+            if deps['neo4j_connection']:
+                st.success("✅ Neo4j Connection")
+            else:
+                st.error("❌ Neo4j Connection")
+                st.markdown("**Setup:**")
+                st.code("""
+# Install Neo4j Desktop or run with Docker:
+docker run -p 7474:7474 -p 7687:7687 \\
+  -e NEO4J_AUTH=neo4j/password \\
+  neo4j:latest
+""")
+        
+        with col3:
+            if deps['gemini_api']:
+                st.success("✅ Gemini API")
+            else:
+                st.error("❌ Gemini API")
+                st.markdown("Check your GEMINI_API_KEY in .env")
+    
+    # Only proceed if dependencies are met
+    if not all(deps.values()):
+        st.warning("⚠️ Please configure all dependencies before using GraphRAG chat.")
+        return
+    
+    # Graph creation section
+    st.subheader("📊 Knowledge Graph")
+    
+    # Create default reddit_data if not provided
+    if not reddit_data:
+        reddit_data = {
+            'username': username,
+            'total_submissions': 0,
+            'total_comments': 0,
+            'submissions': [],
+            'comments': [],
+            'method': 'file_load',
+            'scraped_at': datetime.now().isoformat()
+        }
+    
+    # Initialize chat history key for this user
+    chat_history_key = f'chat_history_{username}'
+    if chat_history_key not in st.session_state:
+        st.session_state[chat_history_key] = []
+    
+    # Check if graph exists for this user
+    graph_exists = graphrag.is_graph_created(username)
+    
+    if not graph_exists:
+        col1, col2 = st.columns([3, 1])
+        with col1:
+            st.info(f"📝 Knowledge graph for **{username}** is not created yet.")
+        with col2:
+            if st.button("🔄 Create Knowledge Graph", type="primary", key=f"create_graph_{username}"):
+                with st.spinner("Creating knowledge graph from persona data..."):
+                    success = graphrag.create_graph_from_persona(persona_text, username, reddit_data)
+                    
+                    if success:
+                        st.success("✅ Knowledge graph created successfully!")
+                        st.rerun()
+                    else:
+                        st.error("❌ Failed to create knowledge graph. Check logs for details.")
+    else:
+        col1, col2 = st.columns([3, 1])
+        with col1:
+            st.success(f"✅ Knowledge graph for **{username}** is ready!")
+        with col2:
+            if st.button("🔄 Rebuild Graph", key=f"rebuild_graph_{username}"):
+                with st.spinner("Rebuilding knowledge graph..."):
+                    graphrag.cleanup_graph(username)
+                    success = graphrag.create_graph_from_persona(persona_text, username, reddit_data)
+                    
+                    if success:
+                        st.success("✅ Knowledge graph rebuilt successfully!")
+                        # Clear chat history for this user
+                        st.session_state[chat_history_key] = []
+                        st.rerun()
+                    else:
+                        st.error("❌ Failed to rebuild knowledge graph.")
+    
+    # Chat interface
+    if graph_exists:
+        st.subheader("💬 Chat Interface")
+        
+        # Display chat history for this user
+        for i, (question, answer) in enumerate(st.session_state[chat_history_key]):
+            with st.container():
+                st.markdown(f"**🧑 You:** {question}")
+                st.markdown(f"**🤖 Assistant:** {answer}")
+                st.divider()
+        
+        # Suggested questions
+        if not st.session_state[chat_history_key]:
+            st.markdown("**💡 Suggested Questions:**")
+            suggestions = graphrag.get_suggested_questions(username)
+            
+            # Display suggestions in columns
+            cols = st.columns(2)
+            for i, suggestion in enumerate(suggestions[:6]):  # Show first 6 suggestions
+                with cols[i % 2]:
+                    if st.button(suggestion, key=f"suggestion_{username}_{i}"):
+                        # Add to chat history
+                        with st.spinner("Thinking..."):
+                            answer = graphrag.query_graph(suggestion, username)
+                            st.session_state[chat_history_key].append((suggestion, answer))
+                            st.rerun()
+        
+        # Chat input
+        with st.form(f"chat_form_{username}", clear_on_submit=True):
+            user_question = st.text_input("Ask a question about the persona:", 
+                                        placeholder="What are their main interests?")
+            
+            col1, col2 = st.columns([1, 4])
+            with col1:
+                submit_button = st.form_submit_button("🚀 Ask", type="primary")
+            with col2:
+                if st.form_submit_button("🗑️ Clear Chat"):
+                    st.session_state[chat_history_key] = []
+                    st.rerun()
+        
+        # Process question
+        if submit_button and user_question:
+            with st.spinner("Searching knowledge graph..."):
+                answer = graphrag.query_graph(user_question, username)
+                st.session_state[chat_history_key].append((user_question, answer))
+                st.rerun()
+        
+        # Export chat history
+        if st.session_state[chat_history_key]:
+            st.subheader("📥 Export Chat")
+            
+            # Create chat export
+            chat_export = f"""
+GraphRAG Chat Session - u/{username}
+Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+
+{'='*50}
+
+"""
+            
+            for i, (question, answer) in enumerate(st.session_state[chat_history_key], 1):
+                chat_export += f"Q{i}: {question}\nA{i}: {answer}\n\n"
+            
+            st.download_button(
+                label="📄 Download Chat History",
+                data=chat_export,
+                file_name=f"graphrag_chat_{username}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
+                mime="text/plain"
+            )
+
+# ...existing code...
 def main():
     """Main Streamlit application."""
     setup_page()
@@ -569,9 +748,9 @@ def main():
                 
                 # Create tabs for different views
                 if show_raw_data:
-                    tabs = st.tabs(["🎭 Persona", "📊 Activity Analysis", "📄 Raw Data"])
+                    tabs = st.tabs(["🎭 Persona", "📊 Activity Analysis", "🤖 GraphRAG Chat", "📄 Raw Data"])
                 else:
-                    tabs = st.tabs(["🎭 Persona", "📊 Activity Analysis"])
+                    tabs = st.tabs(["🎭 Persona", "📊 Activity Analysis", "🤖 GraphRAG Chat"])
                 
                 with tabs[0]:
                     display_persona(persona_text, username)
@@ -617,8 +796,11 @@ def main():
                     st.header(f"📊 Activity Analysis for u/{username}")
                     display_activity_analysis(activity_analysis, reddit_data)
                 
-                if show_raw_data and len(tabs) > 2:
-                    with tabs[2]:
+                with tabs[2]:
+                    display_graphrag_chat(persona_text, username, reddit_data)
+                
+                if show_raw_data and len(tabs) > 3:
+                    with tabs[3]:
                         display_raw_data(reddit_data)
             
             else:
@@ -630,8 +812,200 @@ def main():
             st.error(f"❌ An error occurred: {str(e)}")
             st.exception(e)
     
-    elif user_input and not analyze_button:
-        st.info("👆 Click 'Analyze User' to start the analysis")
+    # Add option to load existing persona files
+    st.markdown("---")
+    st.subheader("📁 Load Existing Persona")
+    
+    # List available persona files
+    output_dir = Path("output")
+    if output_dir.exists():
+        persona_files = []
+        for file_path in output_dir.glob("*_persona.txt"):
+            persona_files.append(file_path)
+        for file_path in output_dir.glob("*.txt"):
+            if "_persona" not in file_path.name:
+                persona_files.append(file_path)
+        
+        if persona_files:
+            col1, col2 = st.columns([3, 1])
+            
+            with col1:
+                selected_file = st.selectbox(
+                    "Select existing persona file:",
+                    options=persona_files,
+                    format_func=lambda x: x.name,
+                    help="Choose from previously generated persona files"
+                )
+            
+            with col2:
+                load_button = st.button("📂 Load Persona", type="secondary")
+            
+            if load_button and selected_file:
+                try:
+                    with open(selected_file, 'r', encoding='utf-8') as f:
+                        persona_text = f.read()
+                    
+                    # Extract username from filename
+                    username = selected_file.stem.replace('_persona', '')
+                    
+                    st.success(f"✅ Loaded persona for u/{username}")
+                    
+                    # Store in session state
+                    st.session_state.loaded_persona_text = persona_text
+                    st.session_state.loaded_username = username
+                    st.session_state.loaded_reddit_data = None
+                    
+                except Exception as e:
+                    st.error(f"❌ Error loading persona file: {e}")
+        else:
+            st.info("No existing persona files found in the output folder.")
+    else:
+        st.info("Output folder not found. Generate a persona first to see existing files.")
+    
+    # Process loaded persona or newly generated persona
+    if 'loaded_persona_text' in st.session_state:
+        persona_text = st.session_state.loaded_persona_text
+        username = st.session_state.loaded_username
+        reddit_data = st.session_state.loaded_reddit_data
+        
+        # Display the persona
+        st.markdown("---")
+        st.header(f"👤 Persona for u/{username}")
+        
+        # Create tabs for different views
+        tabs = st.tabs(["📊 Persona", "📈 Activity Analysis", "🤖 GraphRAG Chat"])
+        
+        with tabs[0]:
+            display_persona(persona_text, username)
+        
+        with tabs[1]:
+            if reddit_data:
+                analysis = analyze_user_activity(reddit_data)
+                display_activity_analysis(analysis, reddit_data)
+            else:
+                st.info("Activity analysis not available for loaded persona files. Generate a new persona to see activity analysis.")
+        
+        with tabs[2]:
+            display_graphrag_chat(persona_text, username, reddit_data)
+    
+    # Continue with existing analyze_button logic
+    elif analyze_button and user_input:
+        # Initialize components
+        scraper = RedditScraper()
+        persona_generator = PersonaGenerator()
+        
+        username = scraper.extract_username_from_url(user_input)
+        
+        # Create progress container
+        progress_container = st.empty()
+        status_container = st.empty()
+        
+        # Progress callback function
+        def update_progress(message):
+            progress_container.info(message)
+        
+        try:
+            # Scrape Reddit data with progress updates
+            update_progress("🚀 Starting Reddit data scraping...")
+            reddit_data = scraper.get_user_data(user_input, limit=data_limit, progress_callback=update_progress)
+            
+            if not reddit_data:
+                progress_container.empty()
+                st.error("❌ Could not retrieve data for this user. The user might not exist, have no posts/comments, or their profile might be private.")
+                return
+            
+            # Save raw data
+            update_progress("💾 Saving raw data...")
+            raw_data_file = scraper.save_raw_data(reddit_data)
+            
+            # Show success message
+            progress_container.empty()
+            st.success(f"✅ Data scraped successfully! Found {reddit_data['total_submissions']} posts and {reddit_data['total_comments']} comments")
+            st.info(f"📁 Raw data saved to: {raw_data_file}")
+            
+            # Generate persona with progress updates
+            update_progress("🤖 Starting AI persona generation...")
+            persona_text = persona_generator.generate_persona(reddit_data, progress_callback=update_progress)
+            
+            if persona_text:
+                # Save persona
+                update_progress("💾 Saving persona...")
+                persona_file = persona_generator.save_persona(persona_text, username)
+                
+                # Clear progress and show success
+                progress_container.empty()
+                st.success(f"✅ Persona generated successfully! Saved to: {persona_file}")
+                
+                # Analyze activity
+                update_progress("📊 Analyzing activity patterns...")
+                activity_analysis = analyze_user_activity(reddit_data)
+                progress_container.empty()
+                
+                # Create tabs for different views
+                if show_raw_data:
+                    tabs = st.tabs(["🎭 Persona", "📊 Activity Analysis", "🤖 GraphRAG Chat", "📄 Raw Data"])
+                else:
+                    tabs = st.tabs(["🎭 Persona", "📊 Activity Analysis", "🤖 GraphRAG Chat"])
+                
+                with tabs[0]:
+                    display_persona(persona_text, username)
+                    
+                    # Create download options
+                    download_formats = create_download_formats(persona_text, username, reddit_data)
+                    
+                    # Download section
+                    st.subheader("📥 Download Options")
+                    col1, col2, col3 = st.columns(3)
+                    
+                    with col1:
+                        st.download_button(
+                            label="📄 Clean Text",
+                            data=download_formats['clean_text'],
+                            file_name=f"persona_{username}_{datetime.now().strftime('%Y%m%d')}.txt",
+                            mime="text/plain",
+                            key="download_clean",
+                            help="Clean text format without markdown"
+                        )
+                    
+                    with col2:
+                        st.download_button(
+                            label="� PDF Format",
+                            data=download_formats['pdf_format'],
+                            file_name=f"persona_{username}_{datetime.now().strftime('%Y%m%d')}.md",
+                            mime="text/markdown",
+                            key="download_pdf",
+                            help="Professional format ready for PDF conversion"
+                        )
+                    
+                    with col3:
+                        st.download_button(
+                            label="📊 CSV Data",
+                            data=download_formats['csv_data'],
+                            file_name=f"persona_{username}_{datetime.now().strftime('%Y%m%d')}.csv",
+                            mime="text/csv",
+                            key="download_csv",
+                            help="Structured data for spreadsheet analysis"
+                        )
+                
+                with tabs[1]:
+                    st.header(f"📊 Activity Analysis for u/{username}")
+                    display_activity_analysis(activity_analysis, reddit_data)
+                
+                with tabs[2]:
+                    display_graphrag_chat(persona_text, username, reddit_data)
+                
+                if show_raw_data and len(tabs) > 3:
+                    with tabs[3]:
+                        display_raw_data(reddit_data)
+            
+            else:
+                progress_container.empty()
+                st.error("❌ Failed to generate persona. Please check your API configuration.")
+                
+        except Exception as e:
+            progress_container.empty()
+            st.error(f"❌ An error occurred: {str(e)}")
+            st.exception(e)
     
     # Footer
     st.divider()

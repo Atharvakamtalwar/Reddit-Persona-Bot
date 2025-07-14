@@ -37,9 +37,51 @@ class GraphRAGHandler:
         # Track graph state per user
         self.user_graphs = {}  # {username: {'created': bool, 'data': dict}}
         
+    def check_graph_exists_in_neo4j(self, username: str) -> bool:
+        """Check if graph exists in Neo4j for the given user."""
+        try:
+            from neo4j import GraphDatabase
+            
+            driver = GraphDatabase.driver(self.neo4j_uri, auth=(self.neo4j_user, self.neo4j_password))
+            
+            with driver.session() as session:
+                result = session.run(
+                    "MATCH (n) WHERE n.username = $username RETURN count(n) as node_count",
+                    parameters={"username": username}
+                )
+                record = result.single()
+                node_count = record['node_count'] if record else 0
+                
+                # If nodes exist, update our tracking
+                if node_count > 0:
+                    self.user_graphs[username] = {
+                        'created': True,
+                        'data': self.user_graphs.get(username, {}).get('data', {})
+                    }
+                    return True
+                else:
+                    # If no nodes, remove from tracking
+                    if username in self.user_graphs:
+                        del self.user_graphs[username]
+                    return False
+            
+            driver.close()
+            
+        except Exception as e:
+            print(f"Error checking graph existence in Neo4j: {e}")
+            return False
+    
     def is_graph_created(self, username: str) -> bool:
-        """Check if graph exists for specific user."""
-        return self.user_graphs.get(username, {}).get('created', False)
+        """Check if graph exists for specific user (with Neo4j verification)."""
+        # First check our tracking
+        local_exists = self.user_graphs.get(username, {}).get('created', False)
+        
+        # If we think it exists, verify in Neo4j
+        if local_exists:
+            return self.check_graph_exists_in_neo4j(username)
+        
+        # If we don't think it exists, do a quick check in Neo4j anyway
+        return self.check_graph_exists_in_neo4j(username)
     
     def get_graph_data(self, username: str) -> Optional[Dict]:
         """Get graph data for specific user."""

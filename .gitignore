@@ -264,6 +264,19 @@ $RECYCLE.BIN/
 .env.development
 
 # Output directory containing generated personas and raw data
+output/
+*.txt
+*.json
+*.csv
+*.md
+*_persona.txt
+*_raw_data.json
+*_activity_analysis.json
+
+# Temporary graph files
+temp_graph/
+*.cypher
+*.graphml
 
 
 # Temporary test files
